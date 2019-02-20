@@ -9,8 +9,7 @@ exports.seed = function(knex, Promise) {
           email: "michael.beamish@safefarm.com",
           password: "123456",
           first_name: "Michael",
-          last_name: "Beamish",
-          phone: "(480) 369-0135"
+          last_name: "Beamish"
         }
       ]);
     });

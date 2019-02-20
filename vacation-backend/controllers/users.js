@@ -12,10 +12,7 @@ module.exports = {
             email: user.email,
             password: user.password,
             first_name: user.first_name,
-            last_name: user.last_name,
-            alias: user.alias,
-            roll: user.roll,
-            phone: user.phone
+            last_name: user.last_name
           },
           "id"
         )

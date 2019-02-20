@@ -1,18 +1,19 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable("policies", table => {
+  return knex.schema.createTable("trips", table => {
     table.increments();
-    table.string("policy_number");
-    table.string("policy_type");
-    table.string("insured_location");
-    table.string("named_insured");
-    table.string("mailing_address");
-    table.string("phone_number");
-    table.integer("deductible");
-    table.integer("policy_limit");
+    table.string("name");
+    table.string("country");
+    table.date("date");
+    table
+      .integer("user_id")
+      .references("id")
+      .inTable("users")
+      .index()
+      .onDelete("CASCADE");
     table.timestamps(true, true);
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable("policies");
+  return knex.schema.dropTable("trips");
 };
