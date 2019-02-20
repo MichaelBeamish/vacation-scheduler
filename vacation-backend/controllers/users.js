@@ -5,14 +5,14 @@ const secret = process.env.JWT_SECRET || "secret";
 
 module.exports = {
   create: (req, res) => {
+    console.log("REQ.BODY:", req.body);
     hasher.hash(req.body).then(user => {
+      console.log("USER:", user);
       knex("users")
         .insert(
           {
             email: user.email,
-            password: user.password,
-            first_name: user.first_name,
-            last_name: user.last_name
+            password: user.password
           },
           "id"
         )

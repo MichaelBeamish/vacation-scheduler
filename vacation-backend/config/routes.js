@@ -5,7 +5,7 @@ const secret = process.env.JWT_SECRET || "secret";
 module.exports = function(app) {
   app.post("/users", users.create);
   app.post("/sessions", users.login);
-  // app.use(verifyToken);
+  app.use(verifyToken);
   app.get("/user", users.verify);
 };
 
