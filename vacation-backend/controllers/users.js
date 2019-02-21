@@ -52,7 +52,18 @@ module.exports = {
       });
   },
 
-  verify: (req, res) => {
-    res.json(req.decoded);
+  read: (req, res) => {
+    knex("users")
+      .where("id", req.params.id)
+      .then(user => {
+        if (user.length) {
+          res.json(user[0]);
+        } else {
+          res.send({ message: "Can't find requested user." });
+        }
+      })
+      .catch(err => {
+        res.send({ err });
+      });
   }
 };
